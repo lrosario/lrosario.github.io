@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonardo Rosário - Especialista em Cibersegurança</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide-react@0.292.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a; /* Fundo principal muito escuro */
+            color: #e0e0e0; /* Cor de texto principal clara */
+        }
+        .font-roboto-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .cyber-glow {
+            text-shadow: 0 0 5px #00f2ff, 0 0 10px #00f2ff, 0 0 15px #00f2ff; /* Efeito de brilho azul neon */
+        }
+        .cyber-glow-green {
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; /* Efeito de brilho verde neon */
+        }
+        .section-bg {
+            background-color: #121212; /* Fundo de seção ligeiramente mais claro */
+            border: 1px solid #00f2ff; /* Borda neon */
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+        .nav-link {
+            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors;
+        }
+        .active-link {
+            @apply bg-sky-600 text-white;
+        }
+        .terminal-header {
+            background-color: #1f2937; /* Cinza escuro para cabeçalho do terminal */
+            padding: 8px 12px;
+            border-top-left-radius: 0.375rem;
+            border-top-right-radius: 0.375rem;
+        }
+        .terminal-header span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .terminal-body {
+            background-color: #0d1117; /* Corpo do terminal muito escuro, quase preto */
+            padding: 16px;
+            border-bottom-left-radius: 0.375rem;
+            border-bottom-right-radius: 0.375rem;
+            min-height: 200px;
+            border: 1px solid #374151; /* Borda sutil */
+            border-top: none;
+        }
+        .cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+        /* Custom scrollbar for a more thematic feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00f2ff;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00c0cc;
+        }
+        /* Estilo para botões */
+        .cyber-button {
+            @apply inline-block bg-sky-500 hover:bg-sky-600 text-white font-roboto-mono font-semibold py-2 px-4 border border-sky-400 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+         .cyber-button-green {
+            @apply inline-block bg-green-500 hover:bg-green-600 text-white font-roboto-mono font-semibold py-2 px-4 border border-green-400 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .gemini-button {
+            @apply inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white font-roboto-mono font-semibold py-2 px-4 border border-purple-500 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .gemini-button i {
+            margin-right: 0.5rem; /* 8px */
+        }
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #00f2ff; /* Blue */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto; /* 16px */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .gemini-output {
+            @apply mt-4 p-4 bg-gray-800/70 border border-purple-500/50 rounded-md text-sm text-gray-300 whitespace-pre-wrap;
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-black/70 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-sky-500/30">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-roboto-mono font-bold cyber-glow">root@lrosario:˜#</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#inicio" class="nav-link active-link">Início</a>
+                        <a href="#sobre" class="nav-link">Sobre Mim</a>
+                        <a href="#habilidades" class="nav-link">Habilidades</a>
+                        <a href="#projetos" class="nav-link">Projetos</a>
+                        <a href="#blog" class="nav-link">Blog</a>
+                        <a href="#contato" class="nav-link">Contato</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="nav-link block active-link">Início</a>
+                <a href="#sobre" class="nav-link block">Sobre Mim</a>
+                <a href="#habilidades" class="nav-link block">Habilidades</a>
+                <a href="#projetos" class="nav-link block">Projetos</a>
+                <a href="#blog" class="nav-link block">Blog</a>
+                <a href="#contato" class="nav-link block">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/0a0a0a/00f2ff?text=Cyber+Background&font=roboto');">
+        <div class="text-center p-6 bg-black/60 backdrop-blur-sm rounded-lg shadow-xl">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-roboto-mono font-bold mb-4">
+                <span class="cyber-glow">Leonardo Rosário</span>
+            </h1>
+            <p id="slogan" class="text-xl sm:text-2xl font-roboto-mono text-sky-300 mb-8 cursor"></p>
+            <a href="#sobre" class="cyber-button">Analisar Perfil &gt;_</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// whoami</h2>
+                <p class="text-lg text-gray-400 mt-2">Decifrando o operador por trás do teclado.</p>
+            </div>
+            <div class="max-w-3xl mx-auto section-bg p-6 sm:p-8 rounded-lg">
+                <div class="md:flex md:items-start">
+                    <div class="md:flex-shrink-0 text-center md:text-left mb-6 md:mb-0 md:mr-8">
+                        <img class="rounded-full w-40 h-40 mx-auto md:mx-0 border-4 border-green-500 shadow-lg" src="https://media.licdn.com/dms/image/v2/D4E03AQFD_z81VBx4Dg/profile-displayphoto-shrink_200_200/B4EZcYZwxzHcAY-/0/1748461096722?e=1753920000&v=beta&t=Fz4OMlVTanBpcja_vg6NpE84A-u3pC3LqmmkEF5HN50" alt="Hey! It's me Leonardo Rosário">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-roboto-mono font-semibold text-green-400 mb-3">Leonardo Rosário aka d3v1l</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Especialista em Segurança Ofensiva | Appsec | DevSecops | Líder do Capítulo OWASP Salvador. com uma paixão por desvendar os mistérios do mundo digital e fortalecer defesas contra ameaças emergentes. Minha jornada começou com curiosidade em computadores e como os mesmos funcionam em meados dos anos 2000 conheci o GNU/Linux e logo após o Hacking, Desde então, tenho me dedicado a Segurança Ofensiva.
+                        </p>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Acredito que a segurança é um processo contínuo de aprendizado, adaptação e vigilância. Minha filosofia é pensar como um invasor para construir defesas robustas.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Dentro do universo binário, gosto de Hardware Hacking, Pentest (Web | Mobile (Android/iOS) | Infra) e Reverse Engineer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="py-16 sm:py-24 bg-gray-900/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow">// Habilidades (Arsenal)</h2>
+                <p class="text-lg text-gray-400 mt-2">Ferramentas e conhecimentos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="section-bg p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="shield-check" class="text-sky-400 mr-3"></i>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Pentest & Análise de Vulnerabilidades</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
+                        <li>Testes em Aplicações Web/Mobile</li>
+                        <li>Hardware Hacking</li>
+                        <li>Reverse Engineer</li>
+                        <li>Análise de Código Estático/Dinâmico</li>
+                        <li>Relatórios Técnicos Detalhados</li>
+                    </ul>
+                </div>
+                <div class="section-bg p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="server" class="text-sky-400 mr-3"></i>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">AppSec & DevSecops</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
+                        <li>Modelagem de Ameaças</li>
+                        <li>Desenvolvimento Seguro</li>
+                        <li>SAST / DAST / IAST / SCA</li>
+                        <li>Code Review</li>
+                        <li>Security Champion</li>
+                    </ul>
+                </div>
+                <div class="section-bg p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="code-2" class="text-sky-400 mr-3"></i>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Arquitetura de Segurança</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
+                        <li>Autenticação / Autorização</li>
+                        <li>Defense in Depth</li>
+                        <li>Criptografia</li>
+                        <li>Gestão de Vulnerabilidades</li>
+                    </ul>
+                </div>
+                 <div class="section-bg p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="brain-circuit" class="text-sky-400 mr-3"></i>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Análise de Malware & Forense</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
+                        <li>Análise Estática e Dinâmica </li>
+                        <li>Ferramentas como Ghidra, Radare2, Hopper.</li>
+                        <li>Coleta e Preservação de Evidências</li>
+                        <li>Princípios de Resposta a Incidentes</li>
+                    </ul>
+                </div>
+                 <div class="section-bg p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="lock" class="text-sky-400 mr-3"></i>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Criptografia e Segurança de Dados</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
+                        <li>Criptografia Simétrica/Assimétrica</li>
+                        <li>Hashing, Assinaturas Digitais</li>
+                        <li>TLS/SSL, PGP/GPG</li>
+                        <li>Proteção de Dados (LGPD/GDPR - Noções)</li>
+                    </ul>
+                </div>
+                 <div class="section-bg p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="users" class="text-sky-400 mr-3"></i>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">CloudSec</h3>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
+                        <li>IAM</li>
+                        <li>Governança e Compliance</li>
+                        <li>Proteção de Dados (Data Security)</li>
+                        <li>Monitoramento, Detecção e Resposta a Incidentes</li>
+                        <li>Gerenciamento de Configuração Segura</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// Projetos (Relatórios de Missão)</h2>
+                <p class="text-lg text-gray-400 mt-2">Operações e desafios concluídos na MatriX.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="section-bg rounded-lg overflow-hidden">
+                    <div class="terminal-header">
+                        <span style="background-color: #ff5f57;"></span> <span style="background-color: #febc2e;"></span> <span style="background-color: #28c840;"></span>
+                    </div>
+                    <div class="terminal-body p-6">
+                        <h3 class="text-xl font-roboto-mono font-semibold text-green-400 mb-2">root@coneds.com.br:~# MOBILE APP EXPLOITATION LAB</h3>
+                        <p class="text-sm text-gray-400 mb-3 font-roboto-mono">Status: <span class="text-green-400">CONCLUÍDO</span></p>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            É um curso intensivo e prático focado em segurança mobile, ensinando técnicas de pentest em Android e iOS através de laboratórios reais.
+                            O curso é 100% online com aulas gravadas, complementadas por laboratórios práticos que você pode realizar no seu próprio ritmo, proporcionando uma experiência de aprendizado hands-on.
+                            Bypass de autenticação, exploração de vulnerabilidades, engenharia reversa e análise de segurança são alguns dos tópicos abordados.
+                            Utilizamos Frida, Genymotion, Bypass Root, Bypass SSL Pinning, Jailbreak e muito mais.
+                            Ficou curioso?
+                            Hack the Planet!
+                        </p>
+                        <p class="text-xs text-gray-500 mb-2 font-roboto-mono">Tecnologias: Android / iOS / Frida / Objection </p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://mobileexploitation.com/" class="cyber-button-green text-xs">Ver Detalhes &gt;</a>
+                    </div>
+                </div>
+                <div class="section-bg rounded-lg overflow-hidden">
+                     <div class="terminal-header">
+                        <span style="background-color: #ff5f57;"></span>
+                        <span style="background-color: #febc2e;"></span>
+                        <span style="background-color: #28c840;"></span>
+                    </div>
+                    <div class="terminal-body p-6">
+                        <h3 class="text-xl font-roboto-mono font-semibold text-green-400 mb-2">ssa@owasp.org:~# OWASP CHAPTER SALVADOR</h3>
+                        <p class="text-sm text-gray-400 mb-3 font-roboto-mono">Status: <span class="text-green-400">ATIVO</span></p>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            O OWASP Chapter Salvador é uma iniciativa local da Open Worldwide Application Security Project (OWASP), dedicada a promover a segurança de software na comunidade de Salvador e região. Nosso objetivo é disseminar conhecimentos, boas práticas e ferramentas relacionadas à segurança de aplicações, criando um ambiente colaborativo para profissionais, estudantes e entusiastas da área.
+                            Participamos ativamente de eventos, workshops e meetups, abordando temas como testes de penetração, análise de vulnerabilidades e desenvolvimento seguro.
+                        </p>
+                        <p class="text-xs text-gray-500 mb-2 font-roboto-mono">Tecnologias: OWASP TOP 10, OWASP ZAP, OWASP ASVS, OWASP LLM TOP 10</p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://owasp.org/www-chapter-salvador/" class="cyber-button-green text-xs">Ver Detalhes &gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="blog" class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// Intel (Blog/Artigos)</h2>
+                <p class="text-lg text-gray-400 mt-2">Análises e despachos da linha de frente cibernética.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="section-bg rounded-lg overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="file-text" class="text-sky-400 mr-3"></i>
+                            <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">As Últimas Tendências em Phishing e Como se Proteger</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            Uma análise aprofundada das novas táticas de phishing que estão a surgir em <span id="blogYear1"></span> e estratégias eficazes para identificar e evitar estas ameaças cibernéticas...
+                        </p>
+                        <a href="https://www.linkedin.com/pulse/%25C3%25BAltimas-tend%25C3%25AAncias-em-phishing-e-como-se-proteger-2025-ros%25C3%25A1rio-sxeqe" class="cyber-button text-xs">Ler Mais &gt;</a>
+                    </div>
+                </div>
+                <div class="section-bg rounded-lg overflow-hidden">
+                    <div class="p-6">
+                         <div class="flex items-center mb-3">
+                            <i data-lucide="shield-zap" class="text-sky-400 mr-3"></i>
+                            <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Guia Prático: Hardening de Servidores Linux para Iniciantes</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            Passos essenciais e comandos práticos para fortalecer a segurança do seu servidor Linux, cobrindo desde configurações básicas até técnicas mais avançadas...
+                        </p>
+                        <a href="#link-para-artigo-2" class="cyber-button text-xs">Ler Mais &gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-16 sm:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// Contato (Canal Seguro)</h2>
+                <p class="text-lg text-gray-400 mt-2">Estabeleça uma conexão para colaborações ou discussões.</p>
+            </div>
+            <div class="max-w-lg mx-auto section-bg p-6 sm:p-8 rounded-lg">
+                <p class="text-center text-gray-300 mb-6">
+                    Interessado em discutir um projeto, trocar ideias sobre segurança ou apenas dizer olá? Utilize os canais abaixo.
+                </p>
+                <div class="space-y-6">
+                    <a href="mailto:eu@lrosario.com.br" class="flex items-center p-3 bg-gray-800/50 hover:bg-gray-700/70 rounded-lg transition-colors border border-sky-500/50">
+                        <i data-lucide="mail" class="text-sky-400 mr-4"></i>
+                        <span class="font-roboto-mono text-sky-300">eu[at]lrosario.com.br</span>
+                    </a>
+                    <a href="https://linkedin.com/in/lpdrosario" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 bg-gray-800/50 hover:bg-gray-700/70 rounded-lg transition-colors border border-sky-500/50">
+                        <i data-lucide="linkedin" class="text-sky-400 mr-4"></i>
+                        <span class="font-roboto-mono text-sky-300">LinkedIn: /lpdrosario</span>
+                    </a>
+                    <a href="https://github.com/lrosario" target="_blank" rel="noopener noreferrer" class="flex items-center p-3 bg-gray-800/50 hover:bg-gray-700/70 rounded-lg transition-colors border border-sky-500/50">
+                        <i data-lucide="github" class="text-sky-400 mr-4"></i>
+                        <span class="font-roboto-mono text-sky-300">GitHub: /lrosario</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-black border-t border-sky-500/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500 font-roboto-mono">
+                &copy; <span id="currentYear"></span> Leonardo Rosário. Todos os direitos reservados.
+            </p>
+            <p class="text-xs text-gray-600 font-roboto-mono mt-1">
+                Wake up Neo! The Matrix has you.<br>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('.nav-link'); // Definido globalmente
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuButton.querySelector('svg:first-child').classList.toggle('hidden');
+            mobileMenuButton.querySelector('svg:last-child').classList.toggle('hidden');
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuButton.querySelector('svg:first-child').classList.remove('hidden');
+                    mobileMenuButton.querySelector('svg:last-child').classList.add('hidden');
+                }
+            });
+        });
+
+        const sloganText = "Analisando Ameaças, Construindo Defesas."; // Pode personalizar este slogan
+        const sloganElement = document.getElementById('slogan');
+        let charIndex = 0;
+
+        function typeSlogan() {
+            if (sloganElement && charIndex < sloganText.length) {
+                sloganElement.textContent += sloganText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeSlogan, 100);
+            } else if (sloganElement) {
+                sloganElement.classList.add('cursor');
+            }
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                // Lógica especial para links de blog que não são secções
+                if (targetId === "#link-para-artigo-1" || targetId === "#link-para-artigo-2") {
+                    // Aqui pode adicionar lógica para abrir o artigo numa nova aba ou modal
+                    // Por enquanto, apenas impede o scroll e não faz nada
+                    console.log("Link de artigo clicado:", targetId);
+                    // Se quiser que abra o link (caso seja um URL completo no futuro):
+                    // window.open(this.href, '_blank');
+                    // e.preventDefault(); // Descomente se não for um scroll para âncora
+                    return; 
+                }
+                
+                // Para links de navegação de secção
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-link');
+                        if (link.getAttribute('href') === targetId) {
+                            link.classList.add('active-link');
+                        }
+                    });
+                }
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 70) { 
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-link');
+                }
+            });
+        });
+        
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+        const blogYear1Span = document.getElementById('blogYear1');
+        if (blogYear1Span) {
+            blogYear1Span.textContent = new Date().getFullYear();
+        }
+        
+        window.onload = () => {
+            typeSlogan();
+            lucide.createIcons(); 
+        };
+       
+    </script>
+</body>
+</html>
+
