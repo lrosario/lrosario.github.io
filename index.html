@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leonardo Rosário - Especialista em Cibersegurança</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Mantido conforme versão atual aceita -->
     <script src="https://unpkg.com/lucide-react@0.292.0/dist/umd/lucide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -123,35 +124,43 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#inicio" class="nav-link active-link">Início</a>
-                        <a href="#sobre" class="nav-link">Sobre Mim</a>
-                        <a href="#habilidades" class="nav-link">Habilidades</a>
-                        <a href="#projetos" class="nav-link">Projetos</a>
-                        <a href="#blog" class="nav-link">Blog</a>
-                        <a href="#contato" class="nav-link">Contato</a>
+                        <a href="#inicio" class="nav-link active-link" data-i18n="nav.home">Início</a>
+                        <a href="#sobre" class="nav-link" data-i18n="nav.about">Sobre Mim</a>
+                        <a href="#habilidades" class="nav-link" data-i18n="nav.skills">Habilidades</a>
+                        <a href="#projetos" class="nav-link" data-i18n="nav.projects">Projetos</a>
+                        <a href="#blog" class="nav-link" data-i18n="nav.blog">Blog</a>
+                        <a href="#contato" class="nav-link" data-i18n="nav.contact">Contato</a>
                     </div>
                 </div>
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-menu-button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Abrir menu principal</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                <div class="flex items-center gap-3">
+                    <!-- Seletor de idioma minimalista -->
+                    <div class="flex items-center space-x-2">
+                        <button id="btn-lang-pt" class="px-2 py-1 rounded-md text-gray-300 hover:text-white" aria-label="Português">🇧🇷</button>
+                        <button id="btn-lang-en" class="px-2 py-1 rounded-md text-gray-300 hover:text-white" aria-label="English">🇺🇸</button>
+                    </div>
+                    <!-- Botão menu mobile -->
+                    <div class="-mr-2 flex md:hidden">
+                        <button type="button" id="mobile-menu-button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Abrir menu principal</span>
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
         <div class="md:hidden hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#inicio" class="nav-link block active-link">Início</a>
-                <a href="#sobre" class="nav-link block">Sobre Mim</a>
-                <a href="#habilidades" class="nav-link block">Habilidades</a>
-                <a href="#projetos" class="nav-link block">Projetos</a>
-                <a href="#blog" class="nav-link block">Blog</a>
-                <a href="#contato" class="nav-link block">Contato</a>
+                <a href="#inicio" class="nav-link block active-link" data-i18n="nav.home">Início</a>
+                <a href="#sobre" class="nav-link block" data-i18n="nav.about">Sobre Mim</a>
+                <a href="#habilidades" class="nav-link block" data-i18n="nav.skills">Habilidades</a>
+                <a href="#projetos" class="nav-link block" data-i18n="nav.projects">Projetos</a>
+                <a href="#blog" class="nav-link block" data-i18n="nav.blog">Blog</a>
+                <a href="#contato" class="nav-link block" data-i18n="nav.contact">Contato</a>
             </div>
         </div>
     </header>
@@ -162,7 +171,7 @@
                 <span class="cyber-glow">Leonardo Rosário</span>
             </h1>
             <p id="slogan" class="text-xl sm:text-2xl font-roboto-mono text-sky-300 mb-8 cursor"></p>
-            <a href="#sobre" class="cyber-button">Analisar Perfil &gt;_</a>
+            <a href="#sobre" class="cyber-button" data-i18n="hero.cta">Analisar Perfil >_</a>
         </div>
     </section>
 
@@ -170,7 +179,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// whoami</h2>
-                <p class="text-lg text-gray-400 mt-2">Decifrando o operador por trás do teclado.</p>
+                <p class="text-lg text-gray-400 mt-2" data-i18n="about.subtitle">Decifrando o operador por trás do teclado.</p>
             </div>
             <div class="max-w-3xl mx-auto section-bg p-6 sm:p-8 rounded-lg">
                 <div class="md:flex md:items-start">
@@ -178,14 +187,14 @@
                         <img class="rounded-full w-40 h-40 mx-auto md:mx-0 border-4 border-green-500 shadow-lg" src="https://media.licdn.com/dms/image/v2/D4E03AQFD_z81VBx4Dg/profile-displayphoto-shrink_200_200/B4EZcYZwxzHcAY-/0/1748461096722?e=1758153600&v=beta&t=HY3C00gpBBrJ0it7a0PSg8Lb8ArmdGadAT-QkrDJPy8" alt="Hey! It's me Leonardo Rosário">
                     </div>
                     <div>
-                        <h3 class="text-2xl font-roboto-mono font-semibold text-green-400 mb-3">Leonardo Rosário aka d3v1l</h3>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
+                        <h3 class="text-2xl font-roboto-mono font-semibold text-green-400 mb-3" data-i18n="about.name">Leonardo Rosário aka d3v1l</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed" data-i18n="about.p1">
                             Especialista em Segurança Ofensiva | Appsec | DevSecops | Líder do Capítulo OWASP Salvador. com uma paixão por desvendar os mistérios do mundo digital e fortalecer defesas contra ameaças emergentes. Minha jornada começou com curiosidade em computadores e como os mesmos funcionam em meados dos anos 2000 conheci o GNU/Linux e logo após o Hacking, Desde então, tenho me dedicado a Segurança Ofensiva.
                         </p>
-                        <p class="text-gray-300 mb-4 leading-relaxed">
+                        <p class="text-gray-300 mb-4 leading-relaxed" data-i18n="about.p2">
                             Acredito que a segurança é um processo contínuo de aprendizado, adaptação e vigilância. Minha filosofia é pensar como um invasor para construir defesas robustas.
                         </p>
-                        <p class="text-gray-300 leading-relaxed">
+                        <p class="text-gray-300 leading-relaxed" data-i18n="about.p3">
                             Dentro do universo binário, gosto de Hardware Hacking, Pentest (Web | Mobile (Android/iOS) | Infra) e Reverse Engineer.
                         </p>
                     </div>
@@ -197,83 +206,83 @@
     <section id="habilidades" class="py-16 sm:py-24 bg-gray-900/50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow">// Habilidades (Arsenal)</h2>
-                <p class="text-lg text-gray-400 mt-2">Ferramentas e conhecimentos.</p>
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow" data-i18n="skills.title">// Habilidades (Arsenal)</h2>
+                <p class="text-lg text-gray-400 mt-2" data-i18n="skills.subtitle">Ferramentas e conhecimentos.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="section-bg p-6 rounded-lg">
                     <div class="flex items-center mb-4">
                         <i data-lucide="shield-check" class="text-sky-400 mr-3"></i>
-                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Pentest & Análise de Vulnerabilidades</h3>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="skills.c1.title">Pentest & Análise de Vulnerabilidades</h3>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
-                        <li>Testes em Aplicações Web/Mobile</li>
-                        <li>Hardware Hacking</li>
-                        <li>Reverse Engineer</li>
-                        <li>Análise de Código Estático/Dinâmico</li>
-                        <li>Relatórios Técnicos Detalhados</li>
+                        <li data-i18n="skills.c1.i1">Testes em Aplicações Web/Mobile</li>
+                        <li data-i18n="skills.c1.i2">Hardware Hacking</li>
+                        <li data-i18n="skills.c1.i3">Reverse Engineer</li>
+                        <li data-i18n="skills.c1.i4">Análise de Código Estático/Dinâmico</li>
+                        <li data-i18n="skills.c1.i5">Relatórios Técnicos Detalhados</li>
                     </ul>
                 </div>
                 <div class="section-bg p-6 rounded-lg">
                     <div class="flex items-center mb-4">
                         <i data-lucide="server" class="text-sky-400 mr-3"></i>
-                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">AppSec & DevSecops</h3>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="skills.c2.title">AppSec & DevSecops</h3>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
-                        <li>Modelagem de Ameaças</li>
-                        <li>Desenvolvimento Seguro</li>
-                        <li>SAST / DAST / IAST / SCA</li>
-                        <li>Code Review</li>
-                        <li>Security Champion</li>
+                        <li data-i18n="skills.c2.i1">Modelagem de Ameaças</li>
+                        <li data-i18n="skills.c2.i2">Desenvolvimento Seguro</li>
+                        <li data-i18n="skills.c2.i3">SAST / DAST / IAST / SCA</li>
+                        <li data-i18n="skills.c2.i4">Code Review</li>
+                        <li data-i18n="skills.c2.i5">Security Champion</li>
                     </ul>
                 </div>
                 <div class="section-bg p-6 rounded-lg">
                     <div class="flex items-center mb-4">
                         <i data-lucide="code-2" class="text-sky-400 mr-3"></i>
-                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Arquitetura de Segurança</h3>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="skills.c3.title">Arquitetura de Segurança</h3>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
-                        <li>Autenticação / Autorização</li>
-                        <li>Defense in Depth</li>
-                        <li>Criptografia</li>
-                        <li>Gestão de Vulnerabilidades</li>
+                        <li data-i18n="skills.c3.i1">Autenticação / Autorização</li>
+                        <li data-i18n="skills.c3.i2">Defense in Depth</li>
+                        <li data-i18n="skills.c3.i3">Criptografia</li>
+                        <li data-i18n="skills.c3.i4">Gestão de Vulnerabilidades</li>
                     </ul>
                 </div>
                  <div class="section-bg p-6 rounded-lg">
                     <div class="flex items-center mb-4">
                         <i data-lucide="brain-circuit" class="text-sky-400 mr-3"></i>
-                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Análise de Malware & Forense</h3>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="skills.c4.title">Análise de Malware & Forense</h3>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
-                        <li>Análise Estática e Dinâmica </li>
-                        <li>Ferramentas como Ghidra, Radare2, Hopper.</li>
-                        <li>Coleta e Preservação de Evidências</li>
-                        <li>Princípios de Resposta a Incidentes</li>
+                        <li data-i18n="skills.c4.i1">Análise Estática e Dinâmica </li>
+                        <li data-i18n="skills.c4.i2">Ferramentas como Ghidra, Radare2, Hopper.</li>
+                        <li data-i18n="skills.c4.i3">Coleta e Preservação de Evidências</li>
+                        <li data-i18n="skills.c4.i4">Princípios de Resposta a Incidentes</li>
                     </ul>
                 </div>
                  <div class="section-bg p-6 rounded-lg">
                     <div class="flex items-center mb-4">
                         <i data-lucide="lock" class="text-sky-400 mr-3"></i>
-                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Criptografia e Segurança de Dados</h3>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="skills.c5.title">Criptografia e Segurança de Dados</h3>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
-                        <li>Criptografia Simétrica/Assimétrica</li>
-                        <li>Hashing, Assinaturas Digitais</li>
-                        <li>TLS/SSL, PGP/GPG</li>
-                        <li>Proteção de Dados (LGPD/GDPR/SOX/PCI-DSS)</li>
+                        <li data-i18n="skills.c5.i1">Criptografia Simétrica/Assimétrica</li>
+                        <li data-i18n="skills.c5.i2">Hashing, Assinaturas Digitais</li>
+                        <li data-i18n="skills.c5.i3">TLS/SSL, PGP/GPG</li>
+                        <li data-i18n="skills.c5.i4">Proteção de Dados (LGPD/GDPR/SOX/PCI-DSS)</li>
                     </ul>
                 </div>
                  <div class="section-bg p-6 rounded-lg">
                     <div class="flex items-center mb-4">
                         <i data-lucide="users" class="text-sky-400 mr-3"></i>
-                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">CloudSec</h3>
+                        <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="skills.c6.title">CloudSec</h3>
                     </div>
                     <ul class="list-disc list-inside text-gray-300 space-y-1 font-roboto-mono text-sm">
-                        <li>IAM</li>
-                        <li>Governança e Compliance</li>
-                        <li>Proteção de Dados (Data Security)</li>
-                        <li>Monitoramento, Detecção e Resposta a Incidentes</li>
-                        <li>Gerenciamento de Configuração Segura</li>
+                        <li data-i18n="skills.c6.i1">IAM</li>
+                        <li data-i18n="skills.c6.i2">Governança e Compliance</li>
+                        <li data-i18n="skills.c6.i3">Proteção de Dados (Data Security)</li>
+                        <li data-i18n="skills.c6.i4">Monitoramento, Detecção e Resposta a Incidentes</li>
+                        <li data-i18n="skills.c6.i5">Gerenciamento de Configuração Segura</li>
                     </ul>
                 </div>
             </div>
@@ -283,8 +292,8 @@
     <section id="projetos" class="py-16 sm:py-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// Projetos (Relatórios de Missão)</h2>
-                <p class="text-lg text-gray-400 mt-2">Operações e desafios concluídos na MatriX.</p>
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green" data-i18n="projects.title">// Projetos (Relatórios de Missão)</h2>
+                <p class="text-lg text-gray-400 mt-2" data-i18n="projects.subtitle">Operações e desafios concluídos na MatriX.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -294,8 +303,11 @@
                     </div>
                     <div class="terminal-body p-6">
                         <h3 class="text-xl font-roboto-mono font-semibold text-green-400 mb-2">root@coneds.com.br:~# MOBILE APP EXPLOITATION LAB</h3>
-                        <p class="text-sm text-gray-400 mb-3 font-roboto-mono">Status: <span class="text-green-400">CONCLUÍDO</span></p>
-                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        <p class="text-sm text-gray-400 mb-3 font-roboto-mono">
+                            <span data-i18n="projects.status">Status:</span>
+                            <span class="text-green-400" data-i18n="projects.c1.statusValue">CONCLUÍDO</span>
+                        </p>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed" data-i18n="projects.c1.desc">
                             É um curso intensivo e prático focado em segurança mobile, ensinando técnicas de pentest em Android e iOS através de laboratórios reais.
                             O curso é 100% online com aulas gravadas, complementadas por laboratórios práticos que você pode realizar no seu próprio ritmo, proporcionando uma experiência de aprendizado hands-on.
                             Bypass de autenticação, exploração de vulnerabilidades, engenharia reversa e análise de segurança são alguns dos tópicos abordados.
@@ -303,8 +315,8 @@
                             Ficou curioso?
                             Hack the Planet!
                         </p>
-                        <p class="text-xs text-gray-500 mb-2 font-roboto-mono">Tecnologias: Android / iOS / Frida / Objection </p>
-                        <a target="_blank" rel="noopener noreferrer" href="https://mobileexploitation.com/" class="cyber-button-green text-xs">Ver Detalhes &gt;</a>
+                        <p class="text-xs text-gray-500 mb-2 font-roboto-mono" data-i18n="projects.c1.techs">Tecnologias: Android / iOS / Frida / Objection </p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://mobileexploitation.com/" class="cyber-button-green text-xs" data-i18n="projects.viewDetails">Ver Detalhes ></a>
                     </div>
                 </div>
                 <div class="section-bg rounded-lg overflow-hidden">
@@ -315,13 +327,16 @@
                     </div>
                     <div class="terminal-body p-6">
                         <h3 class="text-xl font-roboto-mono font-semibold text-green-400 mb-2">ssa@owasp.org:~# OWASP CHAPTER SALVADOR</h3>
-                        <p class="text-sm text-gray-400 mb-3 font-roboto-mono">Status: <span class="text-green-400">ATIVO</span></p>
-                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        <p class="text-sm text-gray-400 mb-3 font-roboto-mono">
+                            <span data-i18n="projects.status">Status:</span>
+                            <span class="text-green-400" data-i18n="projects.c2.statusValue">ATIVO</span>
+                        </p>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed" data-i18n="projects.c2.desc">
                             O OWASP Chapter Salvador é uma iniciativa local da Open Worldwide Application Security Project (OWASP), dedicada a promover a segurança de software na comunidade de Salvador e região. Nosso objetivo é disseminar conhecimentos, boas práticas e ferramentas relacionadas à segurança de aplicações, criando um ambiente colaborativo para profissionais, estudantes e entusiastas da área.
                             Participamos ativamente de eventos, workshops e meetups, abordando temas como testes de penetração, análise de vulnerabilidades e desenvolvimento seguro.
                         </p>
-                        <p class="text-xs text-gray-500 mb-2 font-roboto-mono">Tecnologias: OWASP TOP 10, OWASP ZAP, OWASP ASVS, OWASP LLM TOP 10</p>
-                        <a target="_blank" rel="noopener noreferrer" href="https://owasp.org/www-chapter-salvador/" class="cyber-button-green text-xs">Ver Detalhes &gt;</a>
+                        <p class="text-xs text-gray-500 mb-2 font-roboto-mono" data-i18n="projects.c2.techs">Tecnologias: OWASP TOP 10, OWASP ZAP, OWASP ASVS, OWASP LLM TOP 10</p>
+                        <a target="_blank" rel="noopener noreferrer" href="https://owasp.org/www-chapter-salvador/" class="cyber-button-green text-xs" data-i18n="projects.viewDetails">Ver Detalhes ></a>
                     </div>
                 </div>
             </div>
@@ -332,32 +347,32 @@
     <section id="blog" class="py-16 sm:py-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// Intel (Blog/Artigos)</h2>
-                <p class="text-lg text-gray-400 mt-2">Análises e despachos da linha de frente cibernética.</p>
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green" data-i18n="blog.title">// Intel (Blog/Artigos)</h2>
+                <p class="text-lg text-gray-400 mt-2" data-i18n="blog.subtitle">Análises e despachos da linha de frente cibernética.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div class="section-bg rounded-lg overflow-hidden">
                     <div class="p-6">
                         <div class="flex items-center mb-3">
                             <i data-lucide="file-text" class="text-sky-400 mr-3"></i>
-                            <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">As Últimas Tendências em Phishing e Como se Proteger</h3>
+                            <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="blog.c1.title">As Últimas Tendências em Phishing e Como se Proteger</h3>
                         </div>
-                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed" id="blogDesc1">
                             Uma análise aprofundada das novas táticas de phishing que estão a surgir em <span id="blogYear1"></span> e estratégias eficazes para identificar e evitar estas ameaças cibernéticas...
                         </p>
-                        <a href="https://www.linkedin.com/pulse/%25C3%25BAltimas-tend%25C3%25AAncias-em-phishing-e-como-se-proteger-2025-ros%25C3%25A1rio-sxeqe" class="cyber-button text-xs">Ler Mais &gt;</a>
+                        <a href="https://www.linkedin.com/pulse/%25C3%25BAltimas-tend%25C3%25AAncias-em-phishing-e-como-se-proteger-2025-ros%25C3%25A1rio-sxeqe" class="cyber-button text-xs" data-i18n="common.readMore">Ler Mais ></a>
                     </div>
                 </div>
                 <div class="section-bg rounded-lg overflow-hidden">
                     <div class="p-6">
                          <div class="flex items-center mb-3">
                             <i data-lucide="shield-zap" class="text-sky-400 mr-3"></i>
-                            <h3 class="text-xl font-roboto-mono font-semibold text-sky-400">Guia Prático: Hardening de Servidores Linux para Iniciantes</h3>
+                            <h3 class="text-xl font-roboto-mono font-semibold text-sky-400" data-i18n="blog.c2.title">Guia Prático: Hardening de Servidores Linux para Iniciantes</h3>
                         </div>
-                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed" data-i18n="blog.c2.desc">
                             Passos essenciais e comandos práticos para fortalecer a segurança do seu servidor Linux, cobrindo desde configurações básicas até técnicas mais avançadas...
                         </p>
-                        <a href="#link-para-artigo-2" class="cyber-button text-xs">Ler Mais &gt;</a>
+                        <a href="#link-para-artigo-2" class="cyber-button text-xs" data-i18n="common.readMore">Ler Mais ></a>
                     </div>
                 </div>
             </div>
@@ -367,11 +382,11 @@
     <section id="contato" class="py-16 sm:py-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green">// Contato (Canal Seguro)</h2>
-                <p class="text-lg text-gray-400 mt-2">Estabeleça uma conexão para colaborações ou discussões.</p>
+                <h2 class="text-3xl sm:text-4xl font-roboto-mono font-bold cyber-glow-green" data-i18n="contact.title">// Contato (Canal Seguro)</h2>
+                <p class="text-lg text-gray-400 mt-2" data-i18n="contact.subtitle">Estabeleça uma conexão para colaborações ou discussões.</p>
             </div>
             <div class="max-w-lg mx-auto section-bg p-6 sm:p-8 rounded-lg">
-                <p class="text-center text-gray-300 mb-6">
+                <p class="text-center text-gray-300 mb-6" data-i18n="contact.body">
                     Interessado em discutir um projeto, trocar ideias sobre segurança ou apenas dizer olá? Utilize os canais abaixo.
                 </p>
                 <div class="space-y-6">
@@ -395,7 +410,7 @@
     <footer class="py-8 bg-black border-t border-sky-500/30">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm text-gray-500 font-roboto-mono">
-                &copy; <span id="currentYear"></span> Leonardo Rosário. Todos os direitos reservados.
+                &copy; <span id="currentYear"></span> Leonardo Rosário. <span data-i18n="footer.rights">Todos os direitos reservados.</span>
             </p>
             <p class="text-xs text-gray-600 font-roboto-mono mt-1">
                 Wake up Neo! The Matrix has you.<br>
@@ -428,9 +443,176 @@
             });
         });
 
-        const sloganText = "Analisando Ameaças, Construindo Defesas."; // Pode personalizar este slogan
+        // Traduções PT/EN (mínimo necessário)
+        const translations = {
+            pt: {
+                title: "Leonardo Rosário - Especialista em Cibersegurança",
+                // NAV
+                "nav.home": "Início",
+                "nav.about": "Sobre Mim",
+                "nav.skills": "Habilidades",
+                "nav.projects": "Projetos",
+                "nav.blog": "Blog",
+                "nav.contact": "Contato",
+                // HERO
+                "hero.cta": "Analisar Perfil >_",
+                "hero.slogan": "Analisando Ameaças, Construindo Defesas.",
+                // ABOUT
+                "about.subtitle": "Decifrando o operador por trás do teclado.",
+                "about.name": "Leonardo Rosário aka d3v1l",
+                "about.p1": "Especialista em Segurança Ofensiva | Appsec | DevSecops | Líder do Capítulo OWASP Salvador. com uma paixão por desvendar os mistérios do mundo digital e fortalecer defesas contra ameaças emergentes. Minha jornada começou com curiosidade em computadores e como os mesmos funcionam em meados dos anos 2000 conheci o GNU/Linux e logo após o Hacking, Desde então, tenho me dedicado a Segurança Ofensiva.",
+                "about.p2": "Acredito que a segurança é um processo contínuo de aprendizado, adaptação e vigilância. Minha filosofia é pensar como um invasor para construir defesas robustas.",
+                "about.p3": "Dentro do universo binário, gosto de Hardware Hacking, Pentest (Web | Mobile (Android/iOS) | Infra) e Reverse Engineer.",
+                // SKILLS
+                "skills.title": "// Habilidades (Arsenal)",
+                "skills.subtitle": "Ferramentas e conhecimentos.",
+                "skills.c1.title": "Pentest & Análise de Vulnerabilidades",
+                "skills.c1.i1": "Testes em Aplicações Web/Mobile",
+                "skills.c1.i2": "Hardware Hacking",
+                "skills.c1.i3": "Reverse Engineer",
+                "skills.c1.i4": "Análise de Código Estático/Dinâmico",
+                "skills.c1.i5": "Relatórios Técnicos Detalhados",
+                "skills.c2.title": "AppSec & DevSecops",
+                "skills.c2.i1": "Modelagem de Ameaças",
+                "skills.c2.i2": "Desenvolvimento Seguro",
+                "skills.c2.i3": "SAST / DAST / IAST / SCA",
+                "skills.c2.i4": "Code Review",
+                "skills.c2.i5": "Security Champion",
+                "skills.c3.title": "Arquitetura de Segurança",
+                "skills.c3.i1": "Autenticação / Autorização",
+                "skills.c3.i2": "Defense in Depth",
+                "skills.c3.i3": "Criptografia",
+                "skills.c3.i4": "Gestão de Vulnerabilidades",
+                "skills.c4.title": "Análise de Malware & Forense",
+                "skills.c4.i1": "Análise Estática e Dinâmica ",
+                "skills.c4.i2": "Ferramentas como Ghidra, Radare2, Hopper.",
+                "skills.c4.i3": "Coleta e Preservação de Evidências",
+                "skills.c4.i4": "Princípios de Resposta a Incidentes",
+                "skills.c5.title": "Criptografia e Segurança de Dados",
+                "skills.c5.i1": "Criptografia Simétrica/Assimétrica",
+                "skills.c5.i2": "Hashing, Assinaturas Digitais",
+                "skills.c5.i3": "TLS/SSL, PGP/GPG",
+                "skills.c5.i4": "Proteção de Dados (LGPD/GDPR/SOX/PCI-DSS)",
+                "skills.c6.title": "CloudSec",
+                "skills.c6.i1": "IAM",
+                "skills.c6.i2": "Governança e Compliance",
+                "skills.c6.i3": "Proteção de Dados (Data Security)",
+                "skills.c6.i4": "Monitoramento, Detecção e Resposta a Incidentes",
+                "skills.c6.i5": "Gerenciamento de Configuração Segura",
+                // PROJECTS
+                "projects.title": "// Projetos (Relatórios de Missão)",
+                "projects.subtitle": "Operações e desafios concluídos na MatriX.",
+                "projects.status": "Status:",
+                "projects.viewDetails": "Ver Detalhes >",
+                "projects.c1.statusValue": "CONCLUÍDO",
+                "projects.c1.desc": "É um curso intensivo e prático focado em segurança mobile, ensinando técnicas de pentest em Android e iOS através de laboratórios reais. O curso é 100% online com aulas gravadas, complementadas por laboratórios práticos que você pode realizar no seu próprio ritmo, proporcionando uma experiência de aprendizado hands-on. Bypass de autenticação, exploração de vulnerabilidades, engenharia reversa e análise de segurança são alguns dos tópicos abordados. Utilizamos Frida, Genymotion, Bypass Root, Bypass SSL Pinning, Jailbreak e muito mais. Ficou curioso? Hack the Planet!",
+                "projects.c1.techs": "Tecnologias: Android / iOS / Frida / Objection ",
+                "projects.c2.statusValue": "ATIVO",
+                "projects.c2.desc": "O OWASP Chapter Salvador é uma iniciativa local da Open Worldwide Application Security Project (OWASP), dedicada a promover a segurança de software na comunidade de Salvador e região. Nosso objetivo é disseminar conhecimentos, boas práticas e ferramentas relacionadas à segurança de aplicações, criando um ambiente colaborativo para profissionais, estudantes e entusiastas da área. Participamos ativamente de eventos, workshops e meetups, abordando temas como testes de penetração, análise de vulnerabilidades e desenvolvimento seguro.",
+                "projects.c2.techs": "Tecnologias: OWASP TOP 10, OWASP ZAP, OWASP ASVS, OWASP LLM TOP 10",
+                // BLOG
+                "blog.title": "// Intel (Blog/Artigos)",
+                "blog.subtitle": "Análises e despachos da linha de frente cibernética.",
+                "blog.c1.title": "As Últimas Tendências em Phishing e Como se Proteger",
+                "blog.c1.desc": "Uma análise aprofundada das novas táticas de phishing que estão a surgir em {year} e estratégias eficazes para identificar e evitar estas ameaças cibernéticas...",
+                "blog.c2.title": "Guia Prático: Hardening de Servidores Linux para Iniciantes",
+                "blog.c2.desc": "Passos essenciais e comandos práticos para fortalecer a segurança do seu servidor Linux, cobrindo desde configurações básicas até técnicas mais avançadas...",
+                // CONTACT
+                "contact.title": "// Contato (Canal Seguro)",
+                "contact.subtitle": "Estabeleça uma conexão para colaborações ou discussões.",
+                "contact.body": "Interessado em discutir um projeto, trocar ideias sobre segurança ou apenas dizer olá? Utilize os canais abaixo.",
+                // COMMON
+                "common.readMore": "Ler Mais >",
+                // FOOTER
+                "footer.rights": "Todos os direitos reservados."
+            },
+            en: {
+                title: "Leonardo Rosário - Cybersecurity Specialist",
+                // NAV
+                "nav.home": "Home",
+                "nav.about": "About Me",
+                "nav.skills": "Skills",
+                "nav.projects": "Projects",
+                "nav.blog": "Blog",
+                "nav.contact": "Contact",
+                // HERO
+                "hero.cta": "Analyze Profile >_",
+                "hero.slogan": "Analyzing Threats, Building Defenses.",
+                // ABOUT
+                "about.subtitle": "Decoding the operator behind the keyboard.",
+                "about.name": "Leonardo Rosário aka d3v1l",
+                "about.p1": "Offensive Security Specialist | AppSec | DevSecOps | Leader of the OWASP Salvador Chapter. Passionate about unveiling the mysteries of the digital world and strengthening defenses against emerging threats. My journey began with curiosity about computers and how they work; in the mid-2000s I discovered GNU/Linux and soon after Hacking. Since then, I have been dedicated to Offensive Security.",
+                "about.p2": "I believe security is a continuous process of learning, adaptation and vigilance. My philosophy is to think like an attacker to build robust defenses.",
+                "about.p3": "Within the binary universe, I enjoy Hardware Hacking, Pentesting (Web | Mobile (Android/iOS) | Infra) and Reverse Engineering.",
+                // SKILLS
+                "skills.title": "// Skills (Arsenal)",
+                "skills.subtitle": "Tools and knowledge.",
+                "skills.c1.title": "Pentesting & Vulnerability Analysis",
+                "skills.c1.i1": "Web/Mobile Application Testing",
+                "skills.c1.i2": "Hardware Hacking",
+                "skills.c1.i3": "Reverse Engineering",
+                "skills.c1.i4": "Static/Dynamic Code Analysis",
+                "skills.c1.i5": "Detailed Technical Reports",
+                "skills.c2.title": "AppSec & DevSecOps",
+                "skills.c2.i1": "Threat Modeling",
+                "skills.c2.i2": "Secure Development",
+                "skills.c2.i3": "SAST / DAST / IAST / SCA",
+                "skills.c2.i4": "Code Review",
+                "skills.c2.i5": "Security Champion",
+                "skills.c3.title": "Security Architecture",
+                "skills.c3.i1": "Authentication / Authorization",
+                "skills.c3.i2": "Defense in Depth",
+                "skills.c3.i3": "Cryptography",
+                "skills.c3.i4": "Vulnerability Management",
+                "skills.c4.title": "Malware Analysis & Forensics",
+                "skills.c4.i1": "Static and Dynamic Analysis",
+                "skills.c4.i2": "Tools like Ghidra, Radare2, Hopper.",
+                "skills.c4.i3": "Evidence Collection and Preservation",
+                "skills.c4.i4": "Incident Response Principles",
+                "skills.c5.title": "Cryptography and Data Security",
+                "skills.c5.i1": "Symmetric/Asymmetric Cryptography",
+                "skills.c5.i2": "Hashing, Digital Signatures",
+                "skills.c5.i3": "TLS/SSL, PGP/GPG",
+                "skills.c5.i4": "Data Protection (LGPD/GDPR/SOX/PCI-DSS)",
+                "skills.c6.title": "CloudSec",
+                "skills.c6.i1": "IAM",
+                "skills.c6.i2": "Governance and Compliance",
+                "skills.c6.i3": "Data Protection (Data Security)",
+                "skills.c6.i4": "Monitoring, Detection and Incident Response",
+                "skills.c6.i5": "Secure Configuration Management",
+                // PROJECTS
+                "projects.title": "// Projects (Mission Reports)",
+                "projects.subtitle": "Operations and challenges completed in the Matrix.",
+                "projects.status": "Status:",
+                "projects.viewDetails": "View Details >",
+                "projects.c1.statusValue": "COMPLETED",
+                "projects.c1.desc": "An intensive, hands-on course focused on mobile security, teaching pentest techniques on Android and iOS through real-world labs. The course is 100% online with recorded classes, complemented by practical labs that you can do at your own pace, providing a hands-on learning experience. Authentication bypass, vulnerability exploitation, reverse engineering and security analysis are some of the topics covered. We use Frida, Genymotion, Root Bypass, SSL Pinning Bypass, Jailbreak and more. Curious? Hack the Planet!",
+                "projects.c1.techs": "Technologies: Android / iOS / Frida / Objection ",
+                "projects.c2.statusValue": "ACTIVE",
+                "projects.c2.desc": "OWASP Chapter Salvador is a local initiative of the Open Worldwide Application Security Project (OWASP), dedicated to promoting software security in the Salvador community and region. Our goal is to disseminate knowledge, best practices and tools related to application security, creating a collaborative environment for professionals, students and enthusiasts. We actively participate in events, workshops and meetups, covering topics such as penetration testing, vulnerability analysis and secure development.",
+                "projects.c2.techs": "Technologies: OWASP TOP 10, OWASP ZAP, OWASP ASVS, OWASP LLM TOP 10",
+                // BLOG
+                "blog.title": "// Intel (Blog/Articles)",
+                "blog.subtitle": "Analyses and dispatches from the cyber front line.",
+                "blog.c1.title": "The Latest Trends in Phishing and How to Stay Safe",
+                "blog.c1.desc": "An in-depth analysis of the new phishing tactics emerging in {year} and effective strategies to identify and avoid these cyber threats...",
+                "blog.c2.title": "Practical Guide: Linux Server Hardening for Beginners",
+                "blog.c2.desc": "Essential steps and practical commands to strengthen your Linux server security, from basic configurations to more advanced techniques...",
+                // CONTACT
+                "contact.title": "// Contact (Secure Channel)",
+                "contact.subtitle": "Establish a connection for collaborations or discussions.",
+                "contact.body": "Interested in discussing a project, exchanging security ideas or just saying hello? Use the channels below.",
+                // COMMON
+                "common.readMore": "Read More >",
+                // FOOTER
+                "footer.rights": "All rights reserved."
+            }
+        };
+
+        // Slogan com efeito typewriter (usado pelo i18n)
         const sloganElement = document.getElementById('slogan');
         let charIndex = 0;
+        let sloganText = translations.pt["hero.slogan"];
 
         function typeSlogan() {
             if (sloganElement && charIndex < sloganText.length) {
@@ -442,27 +624,18 @@
             }
         }
         
+        // Scroll suave para anchors e exceção de placeholders
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
-                // Lógica especial para links de blog que não são secções
                 if (targetId === "#link-para-artigo-1" || targetId === "#link-para-artigo-2") {
-                    // Aqui pode adicionar lógica para abrir o artigo numa nova aba ou modal
-                    // Por enquanto, apenas impede o scroll e não faz nada
                     console.log("Link de artigo clicado:", targetId);
-                    // Se quiser que abra o link (caso seja um URL completo no futuro):
-                    // window.open(this.href, '_blank');
-                    // e.preventDefault(); // Descomente se não for um scroll para âncora
                     return; 
                 }
-                
-                // Para links de navegação de secção
                 e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                     navLinks.forEach(link => {
                         link.classList.remove('active-link');
                         if (link.getAttribute('href') === targetId) {
@@ -473,6 +646,7 @@
             });
         });
 
+        // Destaque de seção ativa on scroll
         const sections = document.querySelectorAll('section');
         window.addEventListener('scroll', () => {
             let current = '';
@@ -491,21 +665,65 @@
             });
         });
         
+        // Ano dinâmico + ano do blog
         const currentYearSpan = document.getElementById('currentYear');
-        if (currentYearSpan) {
-            currentYearSpan.textContent = new Date().getFullYear();
-        }
+        if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
         const blogYear1Span = document.getElementById('blogYear1');
-        if (blogYear1Span) {
-            blogYear1Span.textContent = new Date().getFullYear();
+        if (blogYear1Span) blogYear1Span.textContent = new Date().getFullYear();
+
+        // i18n Dinâmico
+        const btnLangPt = document.getElementById('btn-lang-pt');
+        const btnLangEn = document.getElementById('btn-lang-en');
+
+        function updateLanguage(lang) {
+            const dict = translations[lang] || translations.pt;
+
+            // Atualiza lang do documento e title
+            document.documentElement.lang = lang === 'en' ? 'en' : 'pt-PT';
+            document.title = dict.title;
+
+            // Atualiza elementos simples com data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) {
+                    el.textContent = dict[key];
+                }
+            });
+
+            // Atualiza descrição do blog com placeholder {year}
+            const blogDesc1 = document.getElementById('blogDesc1');
+            if (blogDesc1 && dict["blog.c1.desc"]) {
+                const y = new Date().getFullYear();
+                blogDesc1.innerHTML = dict["blog.c1.desc"].replace('{year}', y);
+            }
+
+            // Reinicia o slogan com efeito digitado
+            sloganText = dict["hero.slogan"];
+            charIndex = 0;
+            if (sloganElement) {
+                sloganElement.classList.remove('cursor');
+                sloganElement.textContent = '';
+            }
+
+            localStorage.setItem('lang', lang);
         }
+
+        if (btnLangPt) btnLangPt.addEventListener('click', () => {
+            updateLanguage('pt');
+            typeSlogan();
+        });
+        if (btnLangEn) btnLangEn.addEventListener('click', () => {
+            updateLanguage('en');
+            typeSlogan();
+        });
         
         window.onload = () => {
+            const saved = localStorage.getItem('lang') || 'pt';
+            updateLanguage(saved);
             typeSlogan();
-            lucide.createIcons(); 
+            lucide.createIcons && lucide.createIcons(); 
         };
        
     </script>
 </body>
 </html>
-
